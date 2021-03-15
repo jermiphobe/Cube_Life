@@ -245,46 +245,32 @@ class Cube {
     
     neigh[7] = 1;
     neighbor = neigh[0];
-      
-    
-
+ 
     return neighbor;
   }
   
   //Find neighbors that go off the bottom of the current board
   int find_neigh_bottom(int index, int pos) {
     int neighbor = 0;
-
-    //Need to check the x_index too, might go diagonal if it's a corner
-    if (index == -1) {
-      //Need to go left from the current square
-      neighbor = find_neigh_left(0, pos);
-      
-    } else if (index == dim) {
-      //Need to go right from one above the current square
-      neighbor = find_neigh_right(0, pos);
-      
+    
+    int[] neigh;
+    if (pos == 0) {
+      neigh = bottom.get(0).get(index);
+    } else if (pos == 1) {
+      neigh = top.get(0).get(index);
+    } else if (pos == 2) {
+      neigh = front.get(0).get(index);
+    } else if (pos == 3) {
+      neigh = back.get(0).get(index);
+    } else if (pos == 4) {
+      index = ((dim - 1) - index);
+      neigh = bottom.get(index).get(0);
     } else {
-      int[] neigh;
-      if (pos == 0) {
-        neigh = bottom.get(0).get(index);
-      } else if (pos == 1) {
-        neigh = top.get(0).get(index);
-      } else if (pos == 2) {
-        neigh = front.get(0).get(index);
-      } else if (pos == 3) {
-        neigh = back.get(0).get(index);
-      } else if (pos == 4) {
-        index = ((dim - 1) - index);
-        neigh = bottom.get(index).get(0);
-      } else {
-        neigh = bottom.get(index).get(dim - 1);
-      }
-      
-      neigh[7] = 1;
-      neighbor = neigh[0];
-      
+      neigh = bottom.get(index).get(dim - 1);
     }
+    
+    neigh[7] = 1;
+    neighbor = neigh[0];
     
     return neighbor;
   }
@@ -321,37 +307,25 @@ class Cube {
   int find_neigh_right(int index, int pos) {
     int neighbor = 0;
 
-    //Need to check the y_index too, might go diagonal if it's a corner
-    if (index == -1) {
-        //Need to go left from the current square
-        neighbor = find_neigh_top(0, pos);
-        
-      } else if (index == dim) {
-        //Need to go right from one above the current square
-        neighbor = find_neigh_bottom(0, pos);
-        
-      } else {
-        int[] neigh;
-        if (pos == 0) {
-          neigh = right.get(index).get(0);
-        } else if (pos == 1) {
-          index = ((dim - 1) - index);
-          neigh = right.get(index).get(dim - 1);
-        } else if (pos == 2) {
-          index = ((dim - 1) - index);
-          neigh = right.get(0).get(index);
-        } else if (pos == 3) {
-          neigh = right.get(dim - 1).get(index);
-        } else if (pos == 4) {
-          neigh = front.get(index).get(0);
-        } else {
-          neigh = back.get(index).get(dim - 1);
-        }
-        
-        neigh[7] = 1;
-        neighbor = neigh[0];
-        
-      }
+    int[] neigh;
+    if (pos == 0) {
+      neigh = right.get(index).get(0);
+    } else if (pos == 1) {
+      index = ((dim - 1) - index);
+      neigh = right.get(index).get(dim - 1);
+    } else if (pos == 2) {
+      index = ((dim - 1) - index);
+      neigh = right.get(0).get(index);
+    } else if (pos == 3) {
+      neigh = right.get(dim - 1).get(index);
+    } else if (pos == 4) {
+      neigh = front.get(index).get(0);
+    } else {
+      neigh = back.get(index).get(dim - 1);
+    }
+    
+    neigh[7] = 1;
+    neighbor = neigh[0];
     
     return neighbor;
   }
