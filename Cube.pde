@@ -10,7 +10,7 @@ class Cube {
   ArrayList<ArrayList<int[]>> left = new ArrayList<ArrayList<int[]>>();
   ArrayList<ArrayList<int[]>> right = new ArrayList<ArrayList<int[]>>();
   
-  //Array to hold the cubes
+  //Array to hold the cube
   Box[][][] cube;
   
   //----- For visualizing neighbors --------//
@@ -28,13 +28,14 @@ class Cube {
     dim = dimension;
     this.len = len;
     
+    //For the positioning/centering of each box in the cube
     int offset = (dim - 1) * len / 2;
     
     //Create the cube
     cube = new Box[dim][dim][dim];
     
     //Create the arrays -> 0, 0, 0 is the top/back/left corner
-    for (int x = 0; x < dim; x += 1) {
+    for (int x = 0; x < dim; x += 1) { 
       for (int y = 0; y < dim; y += 1) {
         for (int z = 0; z < dim; z += 1) {
                    
@@ -47,8 +48,8 @@ class Cube {
     }
     
     //Create the 6 arrays
-      //int[] -> current state, next state, x pos, y pos, z pos, neighbor count, 
-      // if currently finding neighbors for this square, if it got checked as neighbor
+      //int[] -> [0] current state, [1] next state, [2] x pos, [3] y pos, [4] z pos, [5] neighbor count, 
+      // [6] if currently finding neighbors for this square, [7] if it got checked as neighbor
     for (int x = 0; x < dim; x += 1) {
       ArrayList<int[]> tmp_front = new ArrayList<int[]>();
       ArrayList<int[]> tmp_top = new ArrayList<int[]>();
@@ -505,10 +506,10 @@ class Cube {
         //Draw the square
         square(X, Y, len);
         
-        fill(255);
-        String coords = curr[2] + "," + curr[3] + "," + curr[4];
-        textSize(len / 3);
-        text(coords, X, Y + len / 2);
+        //fill(255);
+        //String coords = curr[2] + "," + curr[3] + "," + curr[4];
+        //textSize(len / 3);
+        //text(coords, X, Y + len / 2);
         
         X += len;
         
@@ -521,6 +522,7 @@ class Cube {
     
   }
   
+  //Used to highlight the current square and what squares are being checked
   void display_neighbors() {
     if (!started) {
       visualize_board = top;

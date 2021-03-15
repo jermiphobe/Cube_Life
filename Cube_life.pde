@@ -16,8 +16,8 @@ void settings() {
   if (flat) {
     size(900, 900);
     len = (width - 40) / (dim * 4);
+    
   } else {
-
     size(800, 800, P3D);
     //fullScreen(P3D);
     len = (width / 2) / dim;
@@ -39,6 +39,8 @@ void draw() {
     if (visualize) {
       background(200);
       cube.draw_2D();
+      
+    //Draw the normal animation
     } else {
       if (iteration % 20 == 0) {
         background(200);
@@ -50,17 +52,11 @@ void draw() {
     //Draw the cube version
   } else {
     rotateY(PI / 6);
+    background(200);
     
-     //Will let you iterate through finding neighbors
-    if (visualize) {
-      background(200);
-      cube.draw_cube();
-    } else {
-       background(200);
-       cube.draw_cube();
-      if (iteration % 20 == 0) {
-        cube.update_boards();
-      }
+    cube.draw_cube();
+    if (iteration % 20 == 0) {
+      cube.update_boards();
     }
   }
   
@@ -72,7 +68,7 @@ void keyTyped() {
   if (key == 32 && flat == true) {
     visualize = !visualize;
     cube.toggle_visualize();
-  } else {
+  } else if (visualize) {
     cube.display_neighbors();
   }
   
