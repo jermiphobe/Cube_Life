@@ -643,4 +643,8 @@ class Cube {
     visualize = !visualize;
   }
   
+  void toggle_clear() {
+    clear = !clear;
+  }
+  
 }
