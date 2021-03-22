@@ -1,6 +1,9 @@
 class Cube {
   int dim;
-  int len;  
+  int len; 
+  
+  //For clear mode
+  boolean clear = false;
   
   //The final 2-dimensional arrays to hold the boards
   ArrayList<ArrayList<int[]>> front = new ArrayList<ArrayList<int[]>>();
@@ -371,7 +374,11 @@ class Cube {
         if (square[0] == 1) {
           fill_col = color(0);
         } else {
-          draw_fill = false;
+          if (clear) {
+            draw_fill = false;
+          } else {
+            fill_col = 255;
+          }
         }
         
         //Decide which fill method to use based off of pos

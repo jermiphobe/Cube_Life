@@ -69,8 +69,11 @@ void keyTyped() {
     visualize = !visualize;
     cube.toggle_visualize();
     cube.display_neighbors();
+  
   } else if (visualize) {
     cube.display_neighbors();
   }
+  
+  println(key);
   
 }
