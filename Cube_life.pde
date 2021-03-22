@@ -1,6 +1,6 @@
 import peasy.*; //<>//
 
-int dim = 20;
+int dim = 25;
 int len;
 int iteration = 1;
 
@@ -68,6 +68,7 @@ void keyTyped() {
   if (key == 32 && flat == true) {
     visualize = !visualize;
     cube.toggle_visualize();
+    cube.display_neighbors();
   } else if (visualize) {
     cube.display_neighbors();
   }

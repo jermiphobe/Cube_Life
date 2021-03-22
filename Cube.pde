@@ -362,6 +362,7 @@ class Cube {
       for (int[] square: col) {
         square[0] = square[1];
         color fill_col = color(255);
+        boolean draw_fill = true;
         
         x = square[2];
         y = square[3];
@@ -369,32 +370,34 @@ class Cube {
         
         if (square[0] == 1) {
           fill_col = color(0);
+        } else {
+          draw_fill = false;
         }
         
         //Decide which fill method to use based off of pos
         //Front
         if (pos == 0) {
-          cube[x][y][z].draw_front(fill_col);
+          cube[x][y][z].draw_front(fill_col, draw_fill);
         
         //Back
         } else if (pos == 1) {
-          cube[x][y][z].draw_back(fill_col);
+          cube[x][y][z].draw_back(fill_col, draw_fill);
          
         //Top
         } else if (pos == 2) {
-          cube[x][y][z].draw_left(fill_col);
+          cube[x][y][z].draw_left(fill_col, draw_fill);
         
         //Bottom
         } else if (pos == 3) {
-          cube[x][y][z].draw_right(fill_col);
+          cube[x][y][z].draw_right(fill_col, draw_fill);
         
         //Left
         } else if (pos == 4) {
-          cube[x][y][z].draw_top(fill_col);
+          cube[x][y][z].draw_top(fill_col, draw_fill);
         
         //Right
         } else if (pos == 5) {
-          cube[x][y][z].draw_bottom(fill_col);
+          cube[x][y][z].draw_bottom(fill_col, draw_fill);
           
         }
       }
@@ -480,10 +483,10 @@ class Cube {
         //Draw the square
         square(X, Y, len);
         
-        //fill(255);
-        //String coords = curr[2] + "," + curr[3] + "," + curr[4];
-        //textSize(len / 3);
-        //text(coords, X, Y + len / 2);
+        fill(255);
+        String coords = curr[2] + "," + curr[3] + "," + curr[4];
+        textSize(len / 3);
+        text(coords, X, Y + len / 2);
         
         X += len;
         

@@ -14,8 +14,14 @@ class Box {
   }
   
   //Draw a black square on the top of a cube
-  void draw_top(color col) {
-    fill(col);
+  void draw_top(color col, boolean draw) {
+    if (draw) {
+      fill(col);
+      stroke(0);
+    } else {
+      noFill();
+      noStroke();
+    }
     
     pushMatrix();
     translate(pos.x, pos.y, pos.z);
@@ -32,8 +38,14 @@ class Box {
   }
   
   //Draw a black square on the bottom of a cube
-  void draw_bottom(color col) {
-    fill(col);
+  void draw_bottom(color col, boolean draw) {
+    if (draw) {
+      fill(col);
+      stroke(0);
+    } else {
+      noFill();
+      noStroke();
+    }
     
     pushMatrix();
     translate(pos.x, pos.y, pos.z);
@@ -50,8 +62,14 @@ class Box {
   }
   
   //Draw a black square on the left of a cube
-  void draw_left(color col) {
-    fill(col);
+  void draw_left(color col, boolean draw) {
+    if (draw) {
+      fill(col);
+      stroke(0);
+    } else {
+      noFill();
+      noStroke();
+    }
     
     pushMatrix();
     translate(pos.x, pos.y, pos.z);
@@ -68,8 +86,14 @@ class Box {
   }
   
   //Draw a black square on the right of a cube
-  void draw_right(color col) {
-    fill(col);
+  void draw_right(color col, boolean draw) {
+    if (draw) {
+      fill(col);
+      stroke(0);
+    } else {
+      noFill();
+      noStroke();
+    }
     
     pushMatrix();
     translate(pos.x, pos.y, pos.z);
@@ -86,8 +110,14 @@ class Box {
   }
   
   //Draw a black square on the front of a cube
-  void draw_front(color col) {
-    fill(col);
+  void draw_front(color col, boolean draw) {
+    if (draw) {
+      fill(col);
+      stroke(0);
+    } else {
+      noFill();
+      noStroke();
+    }
     
     pushMatrix();
     translate(pos.x, pos.y, pos.z);
@@ -104,8 +134,14 @@ class Box {
   }
   
   //Draw a black square on the front of a cube
-  void draw_back(color col) {
-    fill(col);
+  void draw_back(color col, boolean draw) {
+    if (draw) {
+      fill(col);
+      stroke(0);
+    } else {
+      noFill();
+      noStroke();
+    }
     
     pushMatrix();
     translate(pos.x, pos.y, pos.z);
